@@ -4,6 +4,7 @@ import { Button } from './components/ui/button'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Category from './components/Category'
+import MostSearchedCar from './components/MostSearchedCar'
 
 const Home = () => {
   return (
@@ -13,6 +14,8 @@ const Home = () => {
       <Hero />
 
       <Category />
+      
+      <MostSearchedCar />
     </div>
   )
 }
