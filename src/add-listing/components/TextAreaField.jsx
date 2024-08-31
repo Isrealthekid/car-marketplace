@@ -1,10 +1,10 @@
 import { Textarea } from '@/components/ui/textarea'
 import React from 'react'
 
-const TextAreaField = ({item}) => {
+const TextAreaField = ({item,handleInputChange}) => {
   return (
     <div>
-        <Textarea />
+        <Textarea onChange={(e)=>handleInputChange(item.name,e.target.value)}/>
     </div>
   )
 }

@@ -7,12 +7,12 @@ import {
   } from "@/components/ui/select"
 import React from 'react'
 
-export const DropdownField = ({item}) => {
+export const DropdownField = ({item,handleInputChange}) => {
   return (
     <div>
-        <Select>
+        <Select onValueChange={(value)=> handleInputChange(item.name,value)}>
             <SelectTrigger className="w-full">
-                <SelectValue placeholder={item.label} />
+                <SelectValue placeholder={item.label}/>
             </SelectTrigger>
             <SelectContent>
                 {item?.options.map((option,index)=>(
