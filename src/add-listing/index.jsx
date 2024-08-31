@@ -22,6 +22,11 @@ const AddListing = () => {
 
   }
 
+  const onSubmit=(e)=>{
+    // e.preventDefault();
+    console.log(formData)
+  }
+
   return (
     <div>
       <Header />
@@ -56,7 +61,7 @@ const AddListing = () => {
                 </div>
             </div>
             <div className="mt-10 flex justify-end">
-              <Button >Submit</Button>
+              <Button type="submit" onClick={(e)=>onSubmit(e)}>Submit</Button>
             </div>
           </form>
       </div>

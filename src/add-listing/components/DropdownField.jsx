@@ -10,7 +10,7 @@ import React from 'react'
 export const DropdownField = ({item,handleInputChange}) => {
   return (
     <div>
-        <Select onValueChange={(value)=> handleInputChange(item.name,value)}>
+        <Select required={item.required} onValueChange={(value)=> handleInputChange(item.name,value)}>
             <SelectTrigger className="w-full">
                 <SelectValue placeholder={item.label}/>
             </SelectTrigger>

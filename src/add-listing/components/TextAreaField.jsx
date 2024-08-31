@@ -4,7 +4,7 @@ import React from 'react'
 const TextAreaField = ({item,handleInputChange}) => {
   return (
     <div>
-        <Textarea onChange={(e)=>handleInputChange(item.name,e.target.value)}/>
+        <Textarea required={item.required} onChange={(e)=>handleInputChange(item.name,e.target.value)}/>
     </div>
   )
 }
