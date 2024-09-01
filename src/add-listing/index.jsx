@@ -55,7 +55,7 @@ const AddListing = () => {
                 {carDetails.carDetails.map((item,index)=> (
                   <div key={index}>
                     <label className='text-sm text-bold'>
-                      {/* <IconField icon={item?.icon}/> */}
+                      <IconField icon={item?.icon}/>
                       {item?.label} {item.required&&<span className='text-red-500'>*</span>}</label>
                       {item.fieldType=='text' || item.fieldType=='number' 
                       ? <InputField item={item} handleInputChange={handleInputChange}/>
