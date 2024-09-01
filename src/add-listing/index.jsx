@@ -54,7 +54,7 @@ const AddListing = () => {
               <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                 {carDetails.carDetails.map((item,index)=> (
                   <div key={index}>
-                    <label className='text-sm text-bold'>
+                    <label className='text-sm text-bold flex gap-2 items-center mb-2'>
                       <IconField icon={item?.icon}/>
                       {item?.label} {item.required&&<span className='text-red-500'>*</span>}</label>
                       {item.fieldType=='text' || item.fieldType=='number' 
