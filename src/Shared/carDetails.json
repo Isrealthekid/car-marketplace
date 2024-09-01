@@ -34,7 +34,7 @@
       "label": "Category",
       "name": "category",
       "fieldType": "dropdown",
-      "options": ["Sedan", "SUV", "Truck", "Coupe", "Convertible", "Van", "Hatchback","Electric","Hybrid"],
+      "options": ["Sedan", "SUV", "Truck", "Coupe", "Convertible", "Van", "Hatchback","Electric","Hybrid", "Other(Specify in the description)"],
       "required": true,
       "column": 1,
       "icon": "FaCar"
@@ -47,6 +47,15 @@
       "options": ["New", "Used", "Certified Pre-Owned"],
       "column": 1,
       "icon": "FaCheckCircle"
+    },
+    {
+      "label": "Type",
+      "name": "type",
+      "fieldType": "dropdown",
+      "required": true,
+      "options": ["Modded (Tuned)", "Stock (Factory Build)", "Upgraded"],
+      "column": 1,
+      "icon": "FaWrench"
     },
     
     {
@@ -96,7 +105,8 @@
         "Lamborghini",
         "McLaren",
         "Pagani",
-        "Bugatti"
+        "Bugatti",
+        "Other(Specify in the description)"
       ],
       "column": 1,
       "icon": "FaIndustry"
@@ -171,7 +181,7 @@
       "name": "color",
       "fieldType": "dropdown",
       "required": true,
-      "options": ["Black", "Blue", "Gold", "Pink", "Red", "Silver", "White"],
+      "options": ["Black", "Blue", "Gold", "Pink", "Red", "Silver", "White","Other(Specify in the description)"],
       "column": 2,
       "icon": "FaPalette"
     },
@@ -204,7 +214,7 @@
       "fieldType": "textarea",
       "required": true,
       "column": 2,
-      "icon": "FaFileAlt"
+      "icon": "FaTags"
     }
   ]
 }
