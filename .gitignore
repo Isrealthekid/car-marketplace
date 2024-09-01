@@ -12,7 +12,11 @@ dist
 dist-ssr
 *.local
 
+<<<<<<< HEAD
 !drizzle.config.js
+=======
+drizzle.config.js
+>>>>>>> 9b5c7f12a910df610bc9782dd38c407c119a830c
 
 # Editor directories and files
 .vscode/*
