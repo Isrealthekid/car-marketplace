@@ -12,11 +12,8 @@ dist
 dist-ssr
 *.local
 
-<<<<<<< HEAD
 !drizzle.config.js
-=======
-drizzle.config.js
->>>>>>> 9b5c7f12a910df610bc9782dd38c407c119a830c
+.drizzle.config.js
 
 # Editor directories and files
 .vscode/*
@@ -28,3 +25,15 @@ drizzle.config.js
 *.njsproj
 *.sln
 *.sw?
+
+
+
+
+# /** @type { import("drizzle-kit").Config } */
+# export default {
+#     schema: "./configs/schema.js",
+#     dialect: 'postgresql',
+#     dbCredentials: {
+#       url: "postgresql://car-marketplace_owner:dSv69GolzrJD@ep-curly-grass-a5vmwdt3.us-east-2.aws.neon.tech/car-marketplace?sslmode=require",
+#     }
+#   }; 
