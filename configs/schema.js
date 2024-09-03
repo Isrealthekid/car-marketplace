@@ -22,8 +22,10 @@ export const CarListing=pgTable('carListing',{
     offerType:varchar('offerType'),
     vin:varchar('vin'),
     listingDescription:varchar('listingDescription').notNull(),
-    features:json('features')
-
+    features:json('features'),
+    createdBy:varchar('createdBy').notNull(),
+    // postedOn:varchar('postedOn'),          
+    // re-implement this postedOn
 })
 
 export const CarImages=pgTable('carImages',{

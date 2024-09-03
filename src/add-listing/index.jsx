@@ -14,8 +14,12 @@ import TextAreaField from './components/TextAreaField'
 import IconField from '@/components/ui/IconField'
 import UploadImages from './components/UploadImages'
 import {BiLoaderAlt} from "react-icons/bi"
-import { toast } from '../components/ui/sonner'
+import  {Toaster}  from '../components/ui/sonner'
 import { useNavigate } from 'react-router-dom'
+import { useUser } from '@clerk/clerk-react'
+
+// import moment from 'moments'
+import { toast } from 'sonner'
 
 // function AddListing() {
 //   const [formData,setFormData]=useState([]);
@@ -126,6 +130,7 @@ const AddListing = () => {
   const [triggerUploadImages, setTriggerUploadImages]=useState();
   const [loader, setLoader] = useState(false);
   const navigate=useNavigate();
+  const {user}=useUser();
 
 
   const handleInputChange = (name, value) => {
@@ -163,7 +168,15 @@ const AddListing = () => {
 
     try {
       // const result = await db.insert(CarListing).values(formData);
-      const result = await db.insert(CarListing).values({ ...formData, features: featuresData }).returning({ id: CarListing.id });
+      const result = await db.insert(CarListing).values({
+         ...formData, 
+         features: featuresData,
+         createdBy:user?.primaryEmailAddress?.emailAddress,
+        //  postedOn:moment().format('DD/MM/yyyy')
+        // 
+        // 
+        },
+      ).returning({ id: CarListing.id });
 
       if (result) {
         console.log("data saved");
@@ -216,7 +229,7 @@ const AddListing = () => {
 
       {/* Upload image */}
       <Separator className="my-6" />
-
+  
       <UploadImages triggerUploadImages={triggerUploadImages}  setLoader={(v)=>{setLoader(v);navigate('/profile')}} />
       {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
       <div className="mt-10 flex justify-end">
