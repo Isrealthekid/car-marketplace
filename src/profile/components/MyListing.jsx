@@ -8,7 +8,7 @@ import { useUser } from '@clerk/clerk-react'
 import { desc, eq } from 'drizzle-orm'
 import CarItem from '@/components/CarItem'
 import Service from '@/Shared/Service'
-
+import { FaTrashAlt } from 'react-icons/fa'
 
 function  MyListing() {
 
@@ -47,6 +47,14 @@ function  MyListing() {
               {carList.map((item,index)=>(
                 <div key={index}>
                   <CarItem car={item}/>
+                  <div className='p-2 bg-gray-50 rounded-lg flex justify-between gap-3'>
+                      <Button variant="outline" className="w-full">
+                        Edit
+                      </Button>
+                      <Button variant="destructive" >
+                        <FaTrashAlt/>
+                      </Button>
+                  </div>
 
                 </div>
               ))}

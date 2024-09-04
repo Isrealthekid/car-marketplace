@@ -21,17 +21,18 @@ const CarItem = ({car}) => {
             <div className='grid grid-cols-3 mt-5'>
                 <div className='flex flex-col items-center'>
                     <LuFuel/>
-                    <h2>{car.mileage} Miles</h2>
+                    
+                    <h2>{car?.fuelType}</h2>
                 </div>
 
                 <div className='flex flex-col items-center'>
                     <TbBrandSpeedtest/>
-                    <h2>{car.fuelType}</h2>
+                    <h2>{car?.mileage} Mi</h2>
                 </div>
 
                 <div className='flex flex-col items-center'>
                     <GiGearStickPattern/>
-                    <h2>{car.transmission}</h2>
+                    <h2>{car?.transmission}</h2>
                 </div>
             </div>
             <Separator className="my-2"/>
