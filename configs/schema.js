@@ -24,7 +24,7 @@ export const CarListing=pgTable('carListing',{
     listingDescription:varchar('listingDescription').notNull(),
     features:json('features'),
     createdBy:varchar('createdBy').notNull(),
-    // postedOn:varchar('postedOn'),          
+    postedOn:varchar('postedOn'),          
     // re-implement this postedOn
 })
 

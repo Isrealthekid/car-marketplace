@@ -18,7 +18,7 @@ import  {Toaster}  from '../components/ui/sonner'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '@clerk/clerk-react'
 
-// import moment from 'moments'
+import moment from 'moment'
 import { toast } from 'sonner'
 
 // function AddListing() {
@@ -131,6 +131,7 @@ const AddListing = () => {
   const [loader, setLoader] = useState(false);
   const navigate=useNavigate();
   const {user}=useUser();
+  // const moment = require('moment');
 
 
   const handleInputChange = (name, value) => {
@@ -172,6 +173,7 @@ const AddListing = () => {
          ...formData, 
          features: featuresData,
          createdBy:user?.primaryEmailAddress?.emailAddress,
+         postedOn:moment().format('DD/MM/YYYY')
         //  postedOn:moment().format('DD/MM/yyyy')
         // 
         // 
