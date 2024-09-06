@@ -24,6 +24,7 @@ import { useSearchParams } from 'react-router-dom'
 
 
 
+
 function AddListing() {
   const [formData, setFormData] = useState({});
   const [featuresData, setFeaturesData] = useState({});
@@ -34,18 +35,18 @@ function AddListing() {
   const [carInfo, setCarInfo]=useState();
   const navigate=useNavigate();
   const {user}=useUser();
-  
 
-
+ 
   const mode=searchParams.get('mode');
   const recordId = searchParams.get('id')
-  console.log(recordId)
+
 
   useEffect(()=> {
     if(mode=='edit')
     {
       
       GetListingDetail(); 
+      
     }
         
   },[]);
@@ -60,9 +61,10 @@ function AddListing() {
     setCarInfo(resp[0]);
     setFormData(resp[0]);
     setFeaturesData(resp[0].features);
-
+   
     console.log(resp)
     // console.log(result)  
+   
 
     
   }
@@ -113,6 +115,7 @@ function AddListing() {
         postedOn:moment().format('DD/MM/YYYY')
        }).where(eq(CarListing.id,recordId)).returning({id:CarListing.id});
        console.log(result);
+      navigate('/profile')
        setLoader(false)
 
       }
@@ -190,9 +193,13 @@ function AddListing() {
 
       {/* Upload image */}
       <Separator className="my-6" />
-      //WRITE A LOGIC TO SHOW THE CAR IMAGES AS DEFAULT VALUES WHEN EDITING THE LISTING
-  
-      <UploadImages triggerUploadImages={triggerUploadImages}  setLoader={(v)=>{setLoader(v);navigate('/profile')}} />
+      {/* //WRITE A LOGIC TO SHOW THE CAR IMAGES AS DEFAULT VALUES WHEN EDITING THE LISTING */}
+          {/* WRITE A LOGIC TO DELETE A LISTING // CHECK ORM.DRIZZLE.TEAM/DOCS/DELETE*/}
+      
+      <UploadImages triggerUploadImages={triggerUploadImages}
+      carInfo={carInfo}  
+      mode={mode}
+      setLoader={(v)=>{setLoader(v);navigate('/profile')}} />
       {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
       <div className="mt-10 flex justify-end">
         <Button type="submit" disabled={loader} onClick={(e) => onSubmit(e)}>{!loader?'Submit':<BiLoaderAlt className='animate-spin text-lg'/>}</Button>

@@ -8,9 +8,22 @@ import { CarImages } from '../../../configs/schema';
 import { db } from '../../../configs';
 
 
-function UploadImages({triggerUploadImages, setLoader}) {
+function UploadImages({triggerUploadImages, setLoader,carInfo,mode}) {
 
     const [selectedFileList,setSelectedFileList]=useState([]);
+    const [EditCarImageList,setEditCarImageList]=useState([]);
+
+    useEffect(()=>{
+        if(mode=='edit')
+        {
+          carInfo?.images.forEach((image)=>{
+            setEditCarImageList(prev=>[...prev,image?.imageUrl]);
+            console.log(image)
+            
+          })
+        }
+      },[mode])
+ 
 
     useEffect(()=>{
         if(triggerUploadImages)
@@ -63,6 +76,17 @@ function UploadImages({triggerUploadImages, setLoader}) {
     <div>
         <h2 className='font-medium text-xl my-3'>Upload Car Images</h2>
         <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5'>
+
+            {mode=='edit'&&
+                EditCarImageList?.map((image,index)=>(
+                    <div key={index}>
+                        <IoMdCloseCircle className='absolute m-2 text-lg' onClick={()=>onImageRemoveFromDB(image,index)}/>
+                        <img src={image} className='w-full h-[130px] object-cover rounded-xl'/>
+                    </div>
+                ) )
+                 
+            }
+
             {selectedFileList.map((image,index)=>(
                 <div key={index}>
                     <IoMdCloseCircle className='absolute m-2 text-lg' onClick={()=>onImageRemove(image,index)}/>
