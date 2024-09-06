@@ -22,7 +22,7 @@ function  MyListing() {
 
   const GetUserCarListing=async()=>{
     const result=await db.select().from(CarListing)
-    .leftJoin(CarImages,eq(CarListing.id,CarImages.CarListingId))
+    .leftJoin(CarImages,eq(CarListing.id,CarImages.carListingId))
     .where(eq(CarListing.createdBy,user?.primaryEmailAddress?.emailAddress))
     .orderBy(desc(CarListing.id))
 
@@ -48,7 +48,7 @@ function  MyListing() {
                 <div key={index}>
                   <CarItem car={item}/>
                   <div className='p-2 bg-gray-50 rounded-lg flex justify-between gap-3'>
-                    <Link to={'/profile?mode=edit&id'+item?.id}> 
+                    <Link to={'/add-listing?mode=edit&id='+item?.id}> 
                     <Button variant="outline" className="w-full">
                         Edit
                       </Button>                    

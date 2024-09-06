@@ -26,7 +26,7 @@ function MostSearchedCar() {
 
     const GetPopularCarList=async()=>{
       const result=await db.select().from(CarListing)
-    .leftJoin(CarImages,eq(CarListing.id,CarImages.CarListingId))
+    .leftJoin(CarImages,eq(CarListing.id,CarImages.carListingId))
      .orderBy(desc(CarListing.id))
      .limit(10)
 

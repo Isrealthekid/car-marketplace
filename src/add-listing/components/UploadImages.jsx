@@ -51,7 +51,7 @@ function UploadImages({triggerUploadImages, setLoader}) {
                     console.log(downloadUrl);
                     await db.insert(CarImages).values({
                         imageUrl:downloadUrl,
-                        CarListingId:triggerUploadImages
+                        carListingId:triggerUploadImages
                     })
                 })
             })
