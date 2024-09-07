@@ -6,6 +6,7 @@ import {useState, useEffect} from 'react'
 import {IoMdCloseCircle} from 'react-icons/io'
 import { CarImages } from '../../../configs/schema';
 import { db } from '../../../configs';
+import { eq } from 'drizzle-orm';
 
 
 function UploadImages({triggerUploadImages, setLoader,carInfo,mode}) {
@@ -16,13 +17,14 @@ function UploadImages({triggerUploadImages, setLoader,carInfo,mode}) {
     useEffect(()=>{
         if(mode=='edit')
         {
+            setEditCarImageList([]);
           carInfo?.images.forEach((image)=>{
             setEditCarImageList(prev=>[...prev,image?.imageUrl]);
             console.log(image)
             
           })
         }
-      },[mode])
+      },[carInfo])
  
 
     useEffect(()=>{
@@ -49,15 +51,24 @@ function UploadImages({triggerUploadImages, setLoader,carInfo,mode}) {
         setSelectedFileList(result);
     }
 
+    const onImageRemoveFromDB=async(image,index)=>{
+       console.log(carInfo?.images[index]);
+
+       const result=await db.delete(CarImages).where(eq(CarImages.id,carInfo?.images[index]?.id)).returning({id:CarImages.id});
+
+       const imageList=EditCarImageList.filter(item=>item!=image);
+       setEditCarImageList(imageList);
+    }
+
     const UploadImageToServer=async()=>{
-        setLoader(true)
-        await selectedFileList.forEach((file)=>{
+        setLoader(true);
+        await selectedFileList.forEach(async(file)=>{
             const fileName=Date.now()+'.jpeg';
             const storageRef=ref(storage,'car-marketplace/'+fileName);
             const metaData={
                 contentType:'image/jpeg'
             }
-            uploadBytes(storageRef,file,metaData).then((snapShot)=>{
+            await uploadBytes(storageRef,file,metaData).then((snapShot)=>{
                 console.log('uploaded file');
             }).then(resp=>{
                 getDownloadURL(storageRef).then(async(downloadUrl)=>{
@@ -78,7 +89,7 @@ function UploadImages({triggerUploadImages, setLoader,carInfo,mode}) {
         <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5'>
 
             {mode=='edit'&&
-                EditCarImageList?.map((image,index)=>(
+                EditCarImageList.map((image,index)=>(
                     <div key={index}>
                         <IoMdCloseCircle className='absolute m-2 text-lg' onClick={()=>onImageRemoveFromDB(image,index)}/>
                         <img src={image} className='w-full h-[130px] object-cover rounded-xl'/>

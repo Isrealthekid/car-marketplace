@@ -99,7 +99,7 @@ function AddListing() {
   };
 
   const onSubmit = async (e) => {
-    setLoader(true)
+    setLoader(true);
     e.preventDefault();
     console.log(formData);
     toast('Please Wait...')
@@ -116,7 +116,7 @@ function AddListing() {
        }).where(eq(CarListing.id,recordId)).returning({id:CarListing.id});
        console.log(result);
       navigate('/profile')
-       setLoader(false)
+       setLoader(false);
 
       }
       else{
@@ -131,18 +131,19 @@ function AddListing() {
              postedOn:moment().format('DD/MM/YYYY')
             //  postedOn:moment().format('DD/MM/yyyy')
              },
-          ).returning({ id: CarListing.id });
+          ).returning({ id:CarListing.id });
     
           if (result) {
             console.log("data saved");
-            setTriggerUploadImages(result[0].id);
+            setTriggerUploadImages(result[0]?.id);
             setLoader(false);
           } else {
             errorHandler();
           }
         } catch (e) {
           console.log("error", e);
-          errorHandler();
+          toast('Please fill all required fields')
+          // errorHandler();
         }
        
       }
