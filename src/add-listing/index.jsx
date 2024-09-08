@@ -196,6 +196,8 @@ function AddListing() {
       <Separator className="my-6" />
       {/* //WRITE A LOGIC TO SHOW THE CAR IMAGES AS DEFAULT VALUES WHEN EDITING THE LISTING */}
           {/* WRITE A LOGIC TO DELETE A LISTING // CHECK ORM.DRIZZLE.TEAM/DOCS/DELETE*/}
+
+          {/* CHECK THE LOGIC TO FIX UPLOADING A NEW IMAGE WHILE EDITING A LISTING */}
       
       <UploadImages triggerUploadImages={triggerUploadImages}
       carInfo={carInfo}  

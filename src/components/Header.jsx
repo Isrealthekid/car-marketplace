@@ -14,7 +14,7 @@ const Header = () => {
             <li className='font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary'>Home</li>
             <li className='font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary'>New</li>
             <li className='font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary'>Preowned</li>
-            
+            {/* MAKE ALL THE LINKS ROUTE TO THEIR SPECIFIC PAGE */}
         </ul>
 
         {isSignedIn? 
