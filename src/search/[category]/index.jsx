@@ -41,11 +41,18 @@ function SearchByCategory() {
         <div className='p-10 md:px-20'>
           <h2 className='font-bold text-4xl'>{category}</h2>
         <div className='grid grid-cols-1 sm:grid-cols-2 :md:grid-cols-3 lg:grid-cols-4 mt-7 gap-5'>
-          {carList.map((item,index)=>(
+          {carList?.length>0? carList.map((item,index)=>(
             <div key={index}>
            <CarItem car={item}/>
             </div>
-          ))}          
+          )):
+          [1,2,3,4,5,6,7,8].map((item,index)=>(
+            <div className='h-[350px] rounded-xl bg-slate-200 animate-pulse'>
+           
+            </div>
+          ))
+        
+        }          
           </div>
         </div>
     </div>

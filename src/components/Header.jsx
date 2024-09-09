@@ -7,7 +7,10 @@ const Header = () => {
     const {user, isSignedIn} =useUser();
   return (
     <div className='flex justify-between items-center shadow-sm p-5'>
-        <img src='/logo.svg' width={150} height={100}/>
+        <Link to={'/'}>
+        <img src='/logo.svg' width={150} height={100}/>        
+        </Link>
+       
 
         <ul className='hidden md:flex gap-16'>
             <li className='font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary'>Search</li>
