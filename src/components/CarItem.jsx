@@ -4,11 +4,16 @@ import { LuFuel } from "react-icons/lu";
 import { TbBrandSpeedtest } from "react-icons/tb";
 import { GiGearStickPattern } from "react-icons/gi";
 import { MdOpenInNew } from "react-icons/md";
+import { Link, useParams } from 'react-router-dom';
 
   
 
-const CarItem = ({car}) => {
+function CarItem({car}){
+    
   return (
+    <Link to={'/listing-details/'+car?.id}>
+    
+  
     <div className='rounded-xl bg-white border hover:shadow-md cursor-pointer'>
         <h2 className='absolute m-2 bg-green-500 px-2 rounded-full text-sm text-white' >New</h2>
         <img src={car?.images[0]?.imageUrl} width={'100%'} height={250}
@@ -43,6 +48,7 @@ const CarItem = ({car}) => {
             </div>
         </div>
     </div>
+    </Link>
   )
 }
 
