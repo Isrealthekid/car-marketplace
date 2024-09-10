@@ -34,6 +34,13 @@ function ListingDetail() {
 
         <div className='p-10 md:px-20'>
           <DetailHeader carDetail={carDetail}/>
+
+          <div className='grid grid-cols-1 md:grid-cols-3'>
+            {/* left */}
+            <div className=''>
+
+            </div>
+          </div>
         </div>
     </div>
   )
