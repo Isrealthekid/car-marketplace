@@ -7,6 +7,8 @@ import { db } from '../../../configs';
 import { CarImages, CarListing } from '../../../configs/schema';
 import { eq } from 'drizzle-orm';
 import Service from '@/Shared/Service';
+import ImageGallery from './components/ImageGallery';
+import Description from './components/Description';
 
 function ListingDetail() {
 
@@ -35,11 +37,35 @@ function ListingDetail() {
         <div className='p-10 md:px-20'>
           <DetailHeader carDetail={carDetail}/>
 
-          <div className='grid grid-cols-1 md:grid-cols-3'>
+          <div className='grid grid-cols-1 md:grid-cols-3 w-full mt-10 gap-5'>
             {/* left */}
-            <div className=''>
+              <div className='md:col-span-2 bg-green-100'>
+                {/* image gallery */}
+                <ImageGallery carDetail={carDetail}/>
 
-            </div>
+
+                {/* desc */}
+                <Description carDetail={carDetail}/>
+
+
+
+                {/* featureslist */}
+              </div>
+
+            {/* RIGHT */}
+
+              <div className='bg-red-100'>
+                {/* pricing*/}
+
+
+
+                {/* car properties */}
+
+
+                {/* owners details */}
+
+
+              </div>
           </div>
         </div>
     </div>

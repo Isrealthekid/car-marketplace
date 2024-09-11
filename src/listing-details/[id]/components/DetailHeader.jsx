@@ -9,6 +9,9 @@ import { FaGasPump } from 'react-icons/fa'
 const DetailHeader = ({carDetail}) => {
   return (
     <div>
+      {carDetail?.listingTitle ?
+
+    <div>
         <h2 className='font-bold text-3xl'>{carDetail?.listingTitle}</h2>
         <p className='text-sm'>{carDetail?.tagline}</p>
 
@@ -34,9 +37,11 @@ const DetailHeader = ({carDetail}) => {
           </div>
         </div>
 
-        <div className='w-full rounded-xl' >
+      </div>:
+
+        <div className='w-full rounded-xl h-[100px] bg-slate-200 animate-pulse' >
           
-        </div>
+        </div>}
 
     </div>
 
