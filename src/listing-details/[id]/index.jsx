@@ -10,6 +10,7 @@ import Service from '@/Shared/Service';
 import ImageGallery from './components/ImageGallery';
 import Description from './components/Description';
 import Features from './components/Features';
+import Pricing from './components/Pricing';
 
 function ListingDetail() {
 
@@ -59,6 +60,7 @@ function ListingDetail() {
 
               <div className=''>
                 {/* pricing*/}
+                <Pricing carDetail={carDetail}/>
 
 
 
