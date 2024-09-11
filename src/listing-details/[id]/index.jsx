@@ -9,6 +9,7 @@ import { eq } from 'drizzle-orm';
 import Service from '@/Shared/Service';
 import ImageGallery from './components/ImageGallery';
 import Description from './components/Description';
+import Features from './components/Features';
 
 function ListingDetail() {
 
@@ -39,7 +40,7 @@ function ListingDetail() {
 
           <div className='grid grid-cols-1 md:grid-cols-3 w-full mt-10 gap-5'>
             {/* left */}
-              <div className='md:col-span-2 bg-green-100'>
+              <div className='md:col-span-2 '>
                 {/* image gallery */}
                 <ImageGallery carDetail={carDetail}/>
 
@@ -50,11 +51,13 @@ function ListingDetail() {
 
 
                 {/* featureslist */}
+              
+              <Features features={carDetail?.features}/>
               </div>
 
             {/* RIGHT */}
 
-              <div className='bg-red-100'>
+              <div className=''>
                 {/* pricing*/}
 
 
