@@ -12,6 +12,9 @@ import Description from './components/Description';
 import Features from './components/Features';
 import Pricing from './components/Pricing';
 import Specifications from './components/Specifications';
+import OwnersDetail from './components/OwnersDetail';
+import Footer from '@/components/Footer';
+import FinancialCalculator from './components/FinancialCalculator';
 
 function ListingDetail() {
 
@@ -34,7 +37,7 @@ function ListingDetail() {
   }
 
   return (
-    <div>
+    <div className='overflow-x-hidden'>
         <Header/>
 
         <div className='p-10 md:px-20'>
@@ -46,15 +49,16 @@ function ListingDetail() {
                 {/* image gallery */}
                 <ImageGallery carDetail={carDetail}/>
 
-
                 {/* desc */}
                 <Description carDetail={carDetail}/>
-
-
 
                 {/* featureslist */}
               
               <Features features={carDetail?.features}/>
+
+               {/* FinancialCalculator */}
+
+              <FinancialCalculator/>
               </div>
 
             {/* RIGHT */}
@@ -67,11 +71,16 @@ function ListingDetail() {
                 <Specifications carDetail={carDetail}/>
 
                 {/* owners details */}
+                <OwnersDetail carDetail={carDetail}/>
 
+               
+
+                
 
               </div>
           </div>
         </div>
+        <Footer/>
     </div>
   )
 }
