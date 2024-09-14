@@ -15,6 +15,7 @@ import Specifications from './components/Specifications';
 import OwnersDetail from './components/OwnersDetail';
 import Footer from '@/components/Footer';
 import FinancialCalculator from './components/FinancialCalculator';
+import MostSearchedCar from '@/components/MostSearchedCar';
 
 function ListingDetail() {
 
@@ -71,14 +72,12 @@ function ListingDetail() {
                 <Specifications carDetail={carDetail}/>
 
                 {/* owners details */}
-                <OwnersDetail carDetail={carDetail}/>
-
-               
+                <OwnersDetail carDetail={carDetail}/>           
 
                 
-
               </div>
           </div>
+          <MostSearchedCar/>
         </div>
         <Footer/>
     </div>
