@@ -1,3 +1,7 @@
+import axios from "axios";
+const SendBirdApplicationId=import.meta.env.VITE_SENDBIRD_APP_ID;
+const SendBirdApiToken=import.meta.env.VITE_SENDBIRD_API_TOKEN;
+
  const FormatResult=(resp)=>{
         let result=[];
         let finalResult=[];
@@ -27,9 +31,32 @@
         return finalResult;
        
     }
-    export default{FormatResult};
+   
 
 
+const CreateSendBirdUser=(userid,nickName,profileUrl)=>{
+    return axios.post('https://api-'+SendBirdApplicationId+'.sendbird.com/v3/users',{
+        user_id:userid,
+        nickName:nickName,
+        profile_url:profileUrl,
+        issue_access_token:false
+    },{
+        headers:{
+            'Content-Type':'application/json',
+            'Api-Token':SendBirdApiToken
+        }
+        
+    })
+}
+
+
+
+
+
+export default{
+    FormatResult,
+    CreateSendBirdUser
+};
 // import axios from "axios";
 // const  { CarImages } = require("../../configs/schema")
 
